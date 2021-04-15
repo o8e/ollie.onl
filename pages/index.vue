@@ -58,9 +58,8 @@
     <br />
     <p><strong>Links</strong></p>
     <p><strong>&mdash;</strong></p>
-    <span><a href="https://github.com/o8e">GitHub</a></span>
-    <br />
-    <span><a href="https://twitter.com/shiinotik">Twitter</a></span>
+    <p><a href="https://github.com/o8e">GitHub</a></p>
+    <p><a href="https://twitter.com/shiinotik">Twitter</a></p>
   </div>
 </template>
 
@@ -70,7 +69,7 @@ export default {
   async asyncData({ $axios, $content }) {
     const posts = await $content('notes').fetch()
     const { data: commits } = await $axios.get(
-      'https://api.github.com/repos/o8e/ollie.onl/commits?per_page=6'
+      'https://api.github.com/repos/o8e/ollie.onl/commits?per_page=3'
     )
 
     return {
