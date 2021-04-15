@@ -39,11 +39,11 @@
       </p>
     </div>
     <div id="tooltip" hidden>
-      <img
-        width="250"
-        src="/spoderman.gif"
-        alt="A gif of spiderman pointing at himself"
-      />
+      <video autoplay loop muted playsinline width="250">
+        <source src="/spoderman.webm" type="video/webm" />
+        <source src="/spoderman.mp4" type="video/mp4" />
+        Sorry, your browser doesn't support embedded videos.
+      </video>
     </div>
     <br />
     <p><strong>What's new</strong></p>
