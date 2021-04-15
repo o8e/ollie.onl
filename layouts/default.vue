@@ -1,55 +1,52 @@
 <template>
-  <div>
+  <main>
     <Nuxt />
-  </div>
+  </main>
 </template>
 
-<style>
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
+<style lang="sass">
+*
+  box-sizing: border-box
+html,
+body
+  margin: 0
+body
+  font-family: 'Inconsolata', monospace
+  background: black
+  color: gray
+  line-height: 1.5
+  font-size: 16px
+main
+  padding: 3rem 1.5rem
+  max-width: 40rem
+  margin-left: auto
+  margin-right: auto
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong
+  color: white
+s
+  color: gray
+</style>
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
-}
+<style lang="sass">
+[hidden]
+  display: none
+a
+  color: #FF4365
+  &:link,
+  &:visited
+    color: #FF4365
+  &:focus,
+  &:hover
+    color: darken(#FF4365, 15%)
+  &:active
+    color: darken(#FF4365, 30%)
+.abbr
+  border-bottom: 1px dotted currentColor
+  cursor: crosshair
 </style>
