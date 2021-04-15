@@ -91,6 +91,8 @@ export default {
     '@nuxt/content',
     // https://github.com/moritzsternemann/vue-plausible
     'vue-plausible',
+    // https://axios.nuxtjs.org/
+    '@nuxtjs/axios',
   ],
 
   // Plausible

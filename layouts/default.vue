@@ -15,7 +15,7 @@ body
   background: black
   color: gray
   line-height: 1.5
-  font-size: 16px
+  font-size: 18px
 main
   padding: 3rem 1.5rem
   max-width: 40rem

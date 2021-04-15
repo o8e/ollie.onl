@@ -10,9 +10,13 @@
     </h1>
     <br />
     <p><strong>About</strong></p>
-    <p><strong>&mdash;</strong></p>
+    <span><strong>&mdash;</strong></span>
     <p>I build things with JavaScript, using Vue and&nbsp;Nuxt.</p>
     <p>
+      Currently working at <a href="https://cazana.com">Cazana</a> developing
+      products for the automotive industry.
+    </p>
+    <!-- <p>
       My professional career started in 2014, working for an e-commerce agency
       using Angular. I learned a lot from some clever sausages, but agency life
       sucks and so does&nbsp;Magento.
@@ -21,11 +25,12 @@
       I joined <a href="https://cazana.com">Cazana</a> in 2016 as one of the
       first hires as a startup. Fast forward having built a bunch of powerful
       products for the Automotive industry.
-    </p>
+    </p> -->
     <br />
     <p>
       <strong>Notes</strong>
     </p>
+    <span><strong>&mdash;</strong></span>
     <div v-for="link of posts" :key="link.slug">
       <p class="is-size-5">
         <nuxt-link :to="link.path">
@@ -40,16 +45,37 @@
         alt="A gif of spiderman pointing at himself"
       />
     </div>
+    <br />
+    <p><strong>What's new</strong></p>
+    <span><strong>&mdash;</strong></span>
+    <div v-for="(commit, index) in commits" :key="index" class="commits">
+      <div>[{{ commit.author.login }}] {{ commit.commit.message }}</div>
+      <div>
+        <a :href="commit.html_url">{{ commit.sha.slice(0, 7) }}</a>
+        {{ timeAgo(commit.commit.author.date) }}
+      </div>
+    </div>
+    <br />
+    <p><strong>Links</strong></p>
+    <p><strong>&mdash;</strong></p>
+    <span><a href="https://github.com/o8e">GitHub</a></span>
+    <br />
+    <span><a href="https://twitter.com/shiinotik">Twitter</a></span>
   </div>
 </template>
 
 <script>
+import { formatDistance } from 'date-fns'
 export default {
-  async asyncData({ $content }) {
+  async asyncData({ $axios, $content }) {
     const posts = await $content('notes').fetch()
+    const { data: commits } = await $axios.get(
+      'https://api.github.com/repos/o8e/ollie.onl/commits?per_page=6'
+    )
 
     return {
       posts,
+      commits,
     }
   },
   head() {
@@ -83,12 +109,24 @@ export default {
       ],
     }
   },
+  methods: {
+    timeAgo(date) {
+      return formatDistance(new Date(date), new Date(), { addSuffix: true })
+    },
+  },
 }
 </script>
 
 <style lang="sass" scoped>
 h1
-  font-size: 16px
+  font-size: 18px
 img
   width: 250px
+.commits
+  display: flex
+  flex-flow: row wrap
+  justify-content: space-between
+  div
+    &:last-of-type
+      text-align: right
 </style>
