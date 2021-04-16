@@ -16,16 +16,6 @@
       Currently working at <a href="https://cazana.com">Cazana</a> developing
       products for the automotive industry.
     </p>
-    <!-- <p>
-      My professional career started in 2014, working for an e-commerce agency
-      using Angular. I learned a lot from some clever sausages, but agency life
-      sucks and so does&nbsp;Magento.
-    </p>
-    <p>
-      I joined <a href="https://cazana.com">Cazana</a> in 2016 as one of the
-      first hires as a startup. Fast forward having built a bunch of powerful
-      products for the Automotive industry.
-    </p> -->
     <br />
     <p>
       <strong>Notes</strong>
@@ -46,16 +36,6 @@
       </video>
     </div>
     <br />
-    <p><strong>What's new</strong></p>
-    <span><strong>&mdash;</strong></span>
-    <div v-for="(commit, index) in commits" :key="index" class="commits">
-      <div>[{{ commit.author.login }}] {{ commit.commit.message }}</div>
-      <div>
-        <a :href="commit.html_url">{{ commit.sha.slice(0, 7) }}</a>
-        {{ timeAgo(commit.commit.author.date) }}
-      </div>
-    </div>
-    <br />
     <p><strong>Links</strong></p>
     <p><strong>&mdash;</strong></p>
     <p><a href="https://github.com/o8e">GitHub</a></p>
@@ -66,15 +46,10 @@
 <script>
 import { formatDistance } from 'date-fns'
 export default {
-  async asyncData({ $axios, $content }) {
+  async asyncData({ $content }) {
     const posts = await $content('notes').fetch()
-    const { data: commits } = await $axios.get(
-      'https://api.github.com/repos/o8e/ollie.onl/commits?per_page=3'
-    )
-
     return {
       posts,
-      commits,
     }
   },
   head() {
