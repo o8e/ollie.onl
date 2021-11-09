@@ -5,17 +5,20 @@
 </template>
 
 <style lang="sass">
+$background: #11151C
+$text: #C5CBD3
+$link: #D66853
 *
   box-sizing: border-box
 html,
 body
   margin: 0
 body
-  font-family: 'Inconsolata', monospace
-  background: black
-  color: gray
-  line-height: 1.5
-  font-size: 18px
+  font-family: monospace
+  background: $background
+  color: $text
+  line-height: 1.75
+  font-size: 16px
 main
   padding: 3rem 1.5rem
   max-width: 40rem
@@ -28,24 +31,17 @@ h4,
 h5,
 h6,
 strong
-  color: white
-s
-  color: gray
-</style>
-
-<style lang="sass">
-[hidden]
-  display: none
+  color: $text
 a
-  color: #FF4365
+  color: $link
   &:link,
   &:visited
-    color: #FF4365
+    color: $link
   &:focus,
   &:hover
-    color: darken(#FF4365, 15%)
+    color: darken($link, 15%)
   &:active
-    color: darken(#FF4365, 30%)
+    color: darken($link, 30%)
 .abbr
   border-bottom: 1px dotted currentColor
   cursor: crosshair
